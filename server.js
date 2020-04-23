@@ -1,12 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 5000;
-
+require('dotenv').config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+const uri = process.env.URL;
+// console.log('uri>>>>', uri);
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+const connection = mongoose.connection;
+connection.once('open', () =>{
+  console.log('hurray connection setup');
+}).catch((err)=>console.log('err', err));
 
 // API calls
 app.get('/api/hello', (req, res) => {

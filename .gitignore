@@ -8,6 +8,8 @@ node_modules
 .pnp.js
 
 node_modules/
+.env
+env.yml
 
 # testing
 /coverage
