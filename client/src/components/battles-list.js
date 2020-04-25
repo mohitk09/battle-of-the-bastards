@@ -3,8 +3,6 @@ import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core/styles';
 
 const Battle = (props) => (
   <tr>
@@ -14,15 +12,7 @@ const Battle = (props) => (
     <td>{props.attacker_king}</td>
     <td>{props.defender_king}</td>
   </tr>
-)
-const useStyles = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-      '& > * + *': {
-        marginTop: theme.spacing(2),
-      },
-    },
-  }));
+);
   
 
 export default class BattlesList extends Component {
@@ -69,6 +59,7 @@ export default class BattlesList extends Component {
           this.setState({ battles: response.data, isLoading: false });
         })
         .catch((error) => {
+            this.setState({ isLoading: false });
           console.log(error);
         })
       }
