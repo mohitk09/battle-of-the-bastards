@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
+const listBattles = require('./routes/list-battles');
+const countBattles = require('./routes/count-battles');
+const searchBattles = require('./routes/search-battles');
+
 const port = process.env.PORT || 5000;
 require('dotenv').config();
 app.use(bodyParser.json());
@@ -18,9 +21,10 @@ connection.once('open', () =>{
   console.log('hurray connection setup');
 }).catch((err)=>console.log('err', err));
 
-const battlesRouter = require('./routes/battles');
 
-app.use('/list', battlesRouter);
+app.use('/list', listBattles);
+app.use('/count', countBattles);
+app.use('/search', searchBattles);
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
