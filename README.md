@@ -15,3 +15,5 @@ Ths applicaion exposes three endpoints :-
 
 yarn dev will start both the backend server as well as start react development server.
 Environment file is also created to pass the credentials securely.
+
+*Site is also deployed on heroku for sometime can be accessed on*[https://battle-of-the-bastards.herokuapp.com/]
