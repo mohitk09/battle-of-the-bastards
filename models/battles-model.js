@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const battlesSchema = new Schema({
-  name: { type: String, required: true },
-  year: { type: Number, required: true },
-  battle_number: { type: Number, required: true },
+const battlesSchema = new Schema({ 
+  name: { type: String },
+  year: { type: String, required: true },
+  battle_number: { type: String, required: true },
   attacker_king: { type: String },
   defender_king: { type: String },
   attacker_1: { type: String },
@@ -18,20 +18,20 @@ const battlesSchema = new Schema({
   defender_4: { type: String },
   attacker_outcome: { type: String },
   battle_type: { type: String },
-  major_death: { type: Number },
-  major_capture: { type: Number },
-  attacker_size: { type: Number },
-  defender_size: { type: Number },
+  major_death: { type: String },
+  major_capture: { type: String },
+  attacker_size: { type: String },
+  defender_size: { type: String },
   attacker_commander : { type : String },
   defender_commander: { type: String },
-  summer: { type: Number },
+  summer: { type: String },
   location: { type: String },
   region : { type: String },
-  note : { type: String },
-}, {
-  timestamps: true,
+  note : { type: String }
 });
 
-const Battle = mongoose.model('Battle', battlesSchema);
+battlesSchema.set('collection', 'battles');
 
-module.exports = Battle;
+const battles = mongoose.model('battles', battlesSchema);
+
+module.exports = battles;

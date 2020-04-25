@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import logo from './logo.svg';
+import axios from 'axios';
 
 import './App.css';
 
@@ -18,11 +19,11 @@ class App extends Component {
   }
   
   callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    
-    return body;
+    const response = await axios.get('/list');
+    console.log('response', response);
+    const { data } = response;
+    if (response.status !== 200) throw Error(response.statusText);
+    return data;
   };
   
   handleSubmit = async e => {
