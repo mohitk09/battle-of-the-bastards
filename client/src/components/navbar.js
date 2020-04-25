@@ -12,9 +12,6 @@ export default class Navbar extends Component {
           <li className="navbar-item">
           <Link to="/count" className="nav-link">Count of All battles</Link>
           </li>
-          <li className="navbar-item">
-          <Link to="/search" className="nav-link">Retrieve battle by attacker name or defender name </Link>
-          </li>
         </ul>
         </div>
       </nav>

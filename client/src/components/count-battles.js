@@ -8,12 +8,9 @@ export default class BattlesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('/count')
-      .then(response => {
-          console.log('response', response);
+    axios.get('/count').then(response => {
         this.setState({ totalBattles: response.data })
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.log(error);
       })
   }
@@ -22,7 +19,7 @@ export default class BattlesList extends Component {
 
   render() {
     return (
-        <div className={countClass}>
+        <div>
           {this.state.totalBattles}  
         </div>
     )
