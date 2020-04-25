@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Battle = (props) => (
@@ -28,17 +27,18 @@ export default class BattlesList extends Component {
       })
   }
 
-
   listOfBattles() {
     return this.state.battles.map((battle, it) => {
         const { name , year, region, location, battle_type } = battle;  
-        return (<Battle 
-            battleName={battle.name} 
+        return (
+            <Battle 
+            battleName={name} 
             year={year}
             region={region}
             location={location}
             battleType={battle_type}
-            key = {it}/>);
+            key = {it}/>
+            );
     })
   }
 

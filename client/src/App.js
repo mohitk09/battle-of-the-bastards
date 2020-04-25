@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import Navbar from "./components/navbar"
 import BattlesList from "./components/battles-list";
-// import EditExercise from "./components/edit-exercise.component";
-// import CreateExercise from "./components/create-exercise.component";
-// import CreateUser from "./components/create-user.component";
+import countBattles from "./components/count-battles";
+import searchBattles from "./components/create-battles";
 
 function App() {
   return (
@@ -15,9 +14,8 @@ function App() {
       <Navbar />
       <br/>
       <Route path="/" exact component={BattlesList} />
-      <Route path="/edit/:id" />
-      <Route path="/create"  />
-      <Route path="/user"  />
+      <Route path="/count" component = {countBattles}/>
+      <Route path="/search" component={searchBattles} />
       </div>
     </Router>
   );
